@@ -1,0 +1,21 @@
+{
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "coc.preferences.hoverTarget": "float",
+    "suggest.floatEnable": true,
+    "signature.enable": true,
+    "signature.target": "float",
+    "clangd.enabled": true,
+    "clangd.path": "clangd",
+    "clangd.semanticHighlighting": true,
+    "diagnostic.enable": false,
+    "diagnostic.level": "warning",
+    "clangd.disableDiagnostics": false,
+    "diagnostic.highlightOffset": 0,
+    "diagnostic.enableSign": true,
+    "diagnostic.errorSign": "✗",
+    "diagnostic.warningSign": "",
+    "diagnostic.enableHighlightLineNumber": false,
+    "vimlsp.filetypes": [
+        "vim"
+    ]
+}
