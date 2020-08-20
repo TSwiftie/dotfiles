@@ -29,9 +29,9 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 "等号对齐
 Plug 'godlygeek/tabular'
 "基于lsp语法高亮
-"Plug 'jackguo380/vim-lsp-cxx-highlight'
-Plug 'sheerun/vim-polyglot'
-Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+"Plug 'sheerun/vim-polyglot'
+"Plug 'octol/vim-cpp-enhanced-highlight'
 "启动页
 Plug 'mhinz/vim-startify'
 "模糊搜索
