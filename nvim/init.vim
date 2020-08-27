@@ -174,12 +174,12 @@ autocmd FocusLost,InsertLeave,TextChanged * :wa
 colorscheme dracula
 "colorscheme nord
 "colorscheme gruvbox
-let g:gruvbox_sign_column='bg0'
-let g:gruvbox_color_column='bg0'
-let g:gruvbox_number_column='bg0'
+" let g:gruvbox_sign_column='bg0'
+" let g:gruvbox_color_column='bg0'
+" let g:gruvbox_number_column='bg0'
 set t_Co=256
 set background=dark
-hi Normal ctermbg=NONE guibg=NONE
+"hi Normal ctermbg=NONE guibg=NONE
 "Credit joshdick
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -196,6 +196,9 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
+
+
+
 "这个是安装字体后 必须设置此项" 
 let g:airline_powerline_fonts = 1   
 "打开tabline功能,方便查看Buffer和切换,省去了minibufexpl插件
@@ -335,6 +338,13 @@ let g:NERDToggleCheckAllLines = 1
 
 
 "coc补全插件
+
+let g:coc_global_extensions = ['coc-vimlsp','coc-translator','coc-calc','coc-texlab','coc-json','coc-cmake','coc-clangd','coc-marketplace']
+
+set updatetime=100
+
+set shortmess+=c
+
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -399,12 +409,12 @@ let g:indentLine_color_term = 200
 map <C-p> :FZF<CR>
 
 "cpp
-let g:cpp_class_scope_highlight = 1
-let g:cpp_class_decl_highlight = 1
-let g:cpp_posix_standard = 1
-let g:cpp_experimental_simple_template_highlight = 1
-let g:cpp_concepts_highlight = 1
-let g:cpp_no_function_highlight = 1
+" let g:cpp_class_scope_highlight = 1
+" let g:cpp_class_decl_highlight = 1
+" let g:cpp_posix_standard = 1
+" let g:cpp_experimental_simple_template_highlight = 1
+" let g:cpp_concepts_highlight = 1
+" let g:cpp_no_function_highlight = 1
 
 "ultisnips
 "设置tab键为触发键
