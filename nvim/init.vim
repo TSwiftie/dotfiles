@@ -7,6 +7,7 @@ Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'joshdick/onedark.vim'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'rakr/vim-one'
 "状态栏和主题
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -46,6 +47,9 @@ Plug 'SirVer/ultisnips',{'for':'markdown'}
 "markdown相关
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+"html
+Plug 'mattn/emmet-vim'
+Plug 'pangloss/vim-javascript'
 call plug#end()
 filetype plugin indent on
 
@@ -167,19 +171,9 @@ func SetTitle()
 endfunc
 autocmd BufNewFile * normal G
 autocmd FocusLost,InsertLeave,TextChanged * :wa
+"autocmd FocusLost * :wa
 
 "主题颜色配置
-"colorscheme palenight
-"colorscheme onedark
-colorscheme dracula
-"colorscheme nord
-"colorscheme gruvbox
-" let g:gruvbox_sign_column='bg0'
-" let g:gruvbox_color_column='bg0'
-" let g:gruvbox_number_column='bg0'
-set t_Co=256
-set background=dark
-"hi Normal ctermbg=NONE guibg=NONE
 "Credit joshdick
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -196,6 +190,20 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
+"colorscheme palenight
+"colorscheme onedark
+colorscheme dracula
+"colorscheme one
+"let g:one_allow_italics = 1
+"colorscheme nord
+"colorscheme gruvbox
+" let g:gruvbox_sign_column='bg0'
+" let g:gruvbox_color_column='bg0'
+" let g:gruvbox_number_column='bg0'
+set t_Co=256
+set background=dark
+hi Normal ctermbg=NONE guibg=NONE
+
 
 
 
@@ -216,6 +224,7 @@ endif
 "let g:airline_theme='palenight'
 "let g:airline_theme='onedark'
 let g:airline_theme='dracula'
+"let g:airline_theme='one'
 "let g:airline_theme='gruvbox'
 "let g:airline_theme='nord'
 " let g:airline_left_sep = ''
@@ -243,7 +252,8 @@ let g:ale_set_highlights = 0
 let g:ale_sign_error = '✗'
 "let g:ale_sign_error = ''
 "let g:ale_sign_warning = ''
-let g:ale_sign_warning = ''
+let g:ale_sign_warning = ''
+"let g:ale_sign_warning = ''
 "let g:ale_sign_warning = '△'
 "let g:ale_sign_warning = '☡'
 "let g:ale_sign_warning = 'の'
@@ -339,7 +349,7 @@ let g:NERDToggleCheckAllLines = 1
 
 "coc补全插件
 
-let g:coc_global_extensions = ['coc-vimlsp','coc-translator','coc-calc','coc-texlab','coc-json','coc-cmake','coc-clangd','coc-marketplace']
+let g:coc_global_extensions = ['coc-calc','coc-clangd','coc-cmake','coc-css','coc-css-block-comments','coc-emmet','coc-highlight','coc-html','coc-json','coc-marketplace','coc-scssmodules','coc-translator','coc-tsserver','coc-vimlsp' ]
 
 set updatetime=100
 
@@ -435,3 +445,19 @@ let g:vim_markdown_conceal = 0
 let g:tex_conceal = ""
 let g:vim_markdown_math = 1
 let g:vim_markdown_conceal_code_blocks = 0
+
+"html
+let g:javascript_plugin_jsdoc = 1
+"set conseallevel=1
+let g:javascript_conceal_function             = "ƒ"
+let g:javascript_conceal_null                 = "ø"
+let g:javascript_conceal_this                 = "@"
+let g:javascript_conceal_return               = "⇚"
+let g:javascript_conceal_undefined            = "¿"
+let g:javascript_conceal_NaN                  = "ℕ"
+let g:javascript_conceal_prototype            = "¶"
+let g:javascript_conceal_static               = "•"
+let g:javascript_conceal_super                = "Ω"
+let g:javascript_conceal_arrow_function       = "⇒"
+let g:javascript_conceal_noarg_arrow_function = "🞅"
+let g:javascript_conceal_underscore_arrow_function = "🞅"

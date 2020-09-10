@@ -10,6 +10,7 @@
     "clangd.path": "clangd",
     "clangd.semanticHighlighting": true,
     "diagnostic.enable": false,
+    "diagnostic.displayByAle": false,
     "diagnostic.level": "warning",
     "clangd.disableDiagnostics": false,
     "diagnostic.highlightOffset": 0,
