@@ -35,5 +35,4 @@ set render-loading-bg \#f8f8f2
 set highlight-color \#bd93f9
 set highlight-active-color \#8be9fd
 set selection-clipboard clipboard
-set font FiraCode Retina 24
-#test color #00bc00
+set font "FiraCode Nerd Font 13"
