@@ -1,0 +1,39 @@
+#背景颜色
+set default-bg \#282a36
+set default-fg \#f8f8f2
+#状态栏颜色
+set statusbar-bg \#282a36
+set statusbar-fg \#f8f8f2
+#输入栏颜色
+set inputbar-bg \#282a36
+set inputbar-fg \#f8f8f2
+#补全颜色
+set completion-bg \#282a36
+set completion-fg \#f8f8f2
+set completion-group-bg \#bd93f9
+set completion-group-fg \#282a36
+set completion-highlight-bg \#6272a4
+set completion-highlight-fg \#f8f8f2
+#tab颜色
+set tabbar-bg \#282a36
+set tabbar-fg \#f8f8f2
+set tabbar-focus-bg \#6272a4
+set tabbar-focus-fg \#f8f8f2
+#index颜色
+set index-bg \#282a36
+set index-fg \#f8f8f2
+set index-active-bg \#6272a4
+set index-active-fg \#f8f8f2
+#反色颜色
+set recolor true
+set recolor-darkcolor \#f8f8f2
+set recolor-lightcolor \#282a36
+#渲染颜色
+set render-loading-fg \#282a36
+set render-loading-bg \#f8f8f2
+#高亮颜色
+set highlight-color \#bd93f9
+set highlight-active-color \#8be9fd
+set selection-clipboard clipboard
+set font FiraCode Retina 24
+#test color #00bc00
