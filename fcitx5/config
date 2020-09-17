@@ -1,14 +1,11 @@
 [Hotkey]
 # Enumerate when press trigger key repeatedly
-EnumerateWithTriggerKeys=True
+EnumerateWithTriggerKeys=False
+# Temporally switch between first and current Input Method
+AltTriggerKeys=
 
 [Hotkey/TriggerKeys]
 0=Shift+Shift_L
-1=Zenkaku_Hankaku
-2=Hangul
-
-[Hotkey/AltTriggerKeys]
-0=Shift_L
 
 [Hotkey/EnumerateForwardKeys]
 0=Control+Shift_L
