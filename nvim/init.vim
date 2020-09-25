@@ -165,7 +165,8 @@ func SetTitle()
 		call append(line(".")+19, "const LL INF_ll = 0x3f3f3f3f3f3f3f3fLL;")
 		call append(line(".")+20, "const double PI = acos(-1.0);")
 		call append(line(".")+21, "const double EPS = 1e-8;")
-		call append(line(".")+22, "")
+		call append(line(".")+22, "const char *INPUT = \"/home/ts/code/in.in\";")
+		call append(line(".")+23, "")
 	endif
 	"新建文件后，自动定位到文件末尾
 endfunc
@@ -449,7 +450,7 @@ let g:vim_markdown_conceal_code_blocks = 0
 
 "html
 let g:user_emmet_install_global = 0
-"autocmd FileType html,css EmmentInstall
+autocmd FileType html,css EmmetInstall
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 "set conseallevel=1
