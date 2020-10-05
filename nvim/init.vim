@@ -25,7 +25,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'voldikss/vim-floaterm'
 "自动括号"
 Plug 'jiangmiao/auto-pairs'
-"virtual模式G
+"virtual模式
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 "等号对齐
 Plug 'godlygeek/tabular'
@@ -51,6 +51,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
+"图标
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 filetype plugin indent on
 
@@ -191,6 +193,7 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
+set background=dark
 "colorscheme palenight
 "colorscheme onedark
 colorscheme dracula
@@ -202,7 +205,6 @@ colorscheme dracula
 " let g:gruvbox_color_column='bg0'
 " let g:gruvbox_number_column='bg0'
 set t_Co=256
-set background=dark
 hi Normal ctermbg=NONE guibg=NONE
 
 
@@ -412,8 +414,9 @@ set pyxversion=3
 
 "indentLine
 let g:indentLine_enabled = 1
-"let g:indentLine_enabled = 1
-"let g:indentLine_setColors = 0
+let g:indentLine_setConceal = 0
+let g:indentLine_concealcursor = 'inc'
+let g:indentLine_conceallevel = 1
 let g:indentLine_color_term = 200
 
 
@@ -453,7 +456,7 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
-"set conseallevel=1
+" set conceallevel=2
 " let g:javascript_conceal_function             = "ƒ"
 " let g:javascript_conceal_null                 = "ø"
 " let g:javascript_conceal_this                 = "@"
