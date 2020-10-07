@@ -1,1 +1,2 @@
-g++ -g -std=c++14 $1 && ./a.out
+#g++ -g -std=c++14 $1 && ./a.out
+g++ -g -std=c++14 $1 -o /home/ts/code/exc && /home/ts/code/exc
