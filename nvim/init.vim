@@ -174,6 +174,8 @@ func SetTitle()
 endfunc
 autocmd BufNewFile * normal G
 autocmd FocusLost,InsertLeave,TextChanged * :wa
+"select all
+nnoremap <C-a> ggvG$
 "autocmd FocusLost * :wa
 
 "主题颜色配置
