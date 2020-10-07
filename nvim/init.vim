@@ -176,7 +176,8 @@ autocmd BufNewFile * normal G
 autocmd FocusLost,InsertLeave,TextChanged * :wa
 "select all
 nnoremap <C-a> ggvG$
-"autocmd FocusLost * :wa
+"copy to sys clipboard
+vnoremap <C-y> "+y
 
 "主题颜色配置
 "Credit joshdick
