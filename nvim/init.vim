@@ -196,19 +196,44 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
-set background=dark
+
+
+
+
+"nordic theme config
+let g:nord_bold = 0
+let g:nord_uniform_status_lines = 1
+let g:nord_italic = 1
+let g:nord_underline = 1
+let g:nord_italic_comments = 1
+"
+
+
+"gruvbox theme config
+" let g:gruvbox_sign_column='bg0'
+" let g:gruvbox_color_column='bg0'
+" let g:gruvbox_number_column='bg0'
+"
+
+
+
+
+
 "colorscheme palenight
 "colorscheme onedark
 "colorscheme dracula
 "colorscheme one
-"let g:one_allow_italics = 1
 colorscheme nord
 "colorscheme gruvbox
-" let g:gruvbox_sign_column='bg0'
-" let g:gruvbox_color_column='bg0'
-" let g:gruvbox_number_column='bg0'
+
+
+
+"colorscheme config
+set background=dark
 set t_Co=256
 hi Normal ctermbg=NONE guibg=NONE
+
+
 
 
 
