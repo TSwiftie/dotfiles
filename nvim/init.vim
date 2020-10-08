@@ -199,10 +199,10 @@ endif
 set background=dark
 "colorscheme palenight
 "colorscheme onedark
-colorscheme dracula
+"colorscheme dracula
 "colorscheme one
 "let g:one_allow_italics = 1
-"colorscheme nord
+colorscheme nord
 "colorscheme gruvbox
 " let g:gruvbox_sign_column='bg0'
 " let g:gruvbox_color_column='bg0'
@@ -229,10 +229,10 @@ if !exists('g:airline_symbols')
 endif
 "let g:airline_theme='palenight'
 "let g:airline_theme='onedark'
-let g:airline_theme='dracula'
+"let g:airline_theme='dracula'
 "let g:airline_theme='one'
 "let g:airline_theme='gruvbox'
-"let g:airline_theme='nord'
+let g:airline_theme='nord'
 " let g:airline_left_sep = ''
 " let g:airline_left_alt_sep = '|'
 " let g:airline_right_sep = ''
@@ -288,7 +288,7 @@ let g:ale_linters = {
 \}
 
 
-let g:rainbow_active = 1
+let g:rainbow_active = 0
 let g:rainbow_conf = {
 \	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
 \	'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
