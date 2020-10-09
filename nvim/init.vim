@@ -217,8 +217,6 @@ let g:nord_italic_comments = 1
 
 
 
-
-
 "colorscheme palenight
 "colorscheme onedark
 "colorscheme dracula
@@ -231,7 +229,7 @@ colorscheme nord
 "colorscheme config
 set background=dark
 set t_Co=256
-hi Normal ctermbg=NONE guibg=NONE
+"hi Normal ctermbg=NONE guibg=NONE
 
 
 
