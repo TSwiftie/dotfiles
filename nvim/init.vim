@@ -219,9 +219,9 @@ let g:nord_italic_comments = 1
 
 "colorscheme palenight
 "colorscheme onedark
-"colorscheme dracula
+colorscheme dracula
 "colorscheme one
-colorscheme nord
+"colorscheme nord
 "colorscheme gruvbox
 
 
@@ -229,7 +229,7 @@ colorscheme nord
 "colorscheme config
 set background=dark
 set t_Co=256
-"hi Normal ctermbg=NONE guibg=NONE
+hi Normal ctermbg=NONE guibg=NONE
 
 
 
@@ -252,10 +252,10 @@ if !exists('g:airline_symbols')
 endif
 "let g:airline_theme='palenight'
 "let g:airline_theme='onedark'
-"let g:airline_theme='dracula'
+let g:airline_theme='dracula'
 "let g:airline_theme='one'
 "let g:airline_theme='gruvbox'
-let g:airline_theme='nord'
+"let g:airline_theme='nord'
 " let g:airline_left_sep = ''
 " let g:airline_left_alt_sep = '|'
 " let g:airline_right_sep = ''

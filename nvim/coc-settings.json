@@ -10,13 +10,13 @@
     "clangd.path": "clangd",
     "clangd.semanticHighlighting": true,
     "diagnostic.enable": false,
-    "diagnostic.displayByAle": false,
     "diagnostic.level": "warning",
-    "clangd.disableDiagnostics": false,
+    "diagnostic.displayByAle": false,
+    "clangd.disableDiagnostics": true,
     "diagnostic.highlightOffset": 0,
     "diagnostic.enableSign": true,
     "diagnostic.errorSign": "✗",
-    "diagnostic.warningSign": "☡",
+    "diagnostic.warningSign": "",
     "diagnostic.enableHighlightLineNumber": false,
     "vimlsp.filetypes": [
         "vim"
