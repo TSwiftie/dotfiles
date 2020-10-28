@@ -486,3 +486,9 @@ let g:javascript_plugin_ngdoc = 1
 " let g:javascript_conceal_arrow_function       = "⇒"
 " let g:javascript_conceal_noarg_arrow_function = "🞅"
 " let g:javascript_conceal_underscore_arrow_function = "🞅"
+
+
+
+"auto-pairs
+let g:AutoPairsMapBS = 1
+let g:AutoPairsMultilineClose = 0
