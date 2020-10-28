@@ -38,7 +38,7 @@ Plug 'mhinz/vim-startify'
 "模糊搜索
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "缩进线
-Plug 'Yggdroot/indentLine'
+"Plug 'Yggdroot/indentLine'
 "多行virtual
 Plug 'terryma/vim-multiple-cursors'
 "片段
@@ -174,10 +174,20 @@ func SetTitle()
 endfunc
 autocmd BufNewFile * normal G
 autocmd FocusLost,InsertLeave,TextChanged * :wa
+
+
 "select all
 nnoremap <C-a> ggvG$
 "copy to sys clipboard
 vnoremap <C-y> "+y
+"floaterm ranger
+nnoremap <leader>ra :FloatermNew ranger<cr>
+"floaterm lazygit
+nnoremap <leader>lg :FloatermNew lazygit<cr>
+"floaterm run
+nnoremap <leader>run : FloatermNew run %<cr>
+
+
 
 "主题颜色配置
 "Credit joshdick
@@ -242,8 +252,8 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 "设置切换Buffer快捷键"
-nnoremap <C-tab> :bn<CR>
-nnoremap <C-s-tab> :bp<CR>
+nnoremap <c-tab> :bn<cr>
+nnoremap <C-s-tab> :bp<cr>
 " 关闭状态显示空白符号计数
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#whitespace#symbol = '!'
