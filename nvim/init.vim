@@ -123,26 +123,6 @@ let mapleader=" "
 autocmd BufNewFile *.cpp,*.[ch],*.sh exec ":call SetTitle()" 
 ""定义函数SetTitle，自动插入文件头 
 func SetTitle() 
-	"如果文件类型为.sh文件 
-	" if &filetype == 'sh'
-	"     call setline(1, "##########################################################################")
-	"     call append(line("."), "# File Name: ".expand("%"))
-	"     call append(line(".")+1, "# Author: TSwiftie")
-	"     call append(line(".")+2, "# mail: tswiftie@foxmail.com")
-	"     call append(line(".")+3, "# Created Time: ".strftime("%c"))
-	"     call append(line(".")+4, "#########################################################################")
-	"     call append(line(".")+5, "#!/bin/bash")
-	"     call append(line(".")+6, "PATH=/home/edison/bin:/home/edison/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/work/tools/gcc-3.4.5-glibc-2.3.6/bin")
-	"     call append(line(".")+7, "export PATH")
-	"     call append(line(".")+8, "")
-	" else
-	"     call setline(1, "/************************************************************")
-	"     call append(line("."), "	> File Name: ".expand("%"))
-	"     call append(line(".")+1, "	> Author: TSwiftie")
-	"     call append(line(".")+2, "	> Mail: tswiftie@foxmail.com ")
-	"     call append(line(".")+3, "	> Created Time: ".strftime("%c"))
-	"     call append(line(".")+4, "************************************************************/")
-	" endif
 	if &filetype == 'cpp'
         call setline(1, "#include <bits/stdc++.h>")
 		call append(line("."), "#include <ext/rope>")
@@ -211,11 +191,11 @@ endif
 
 
 "nordic theme config
-let g:nord_bold = 0
-let g:nord_uniform_status_lines = 1
-let g:nord_italic = 1
-let g:nord_underline = 1
-let g:nord_italic_comments = 1
+" let g:nord_bold = 0
+" let g:nord_uniform_status_lines = 1
+" let g:nord_italic = 1
+" let g:nord_underline = 1
+" let g:nord_italic_comments = 1
 "
 
 
