@@ -48,5 +48,6 @@
 		"value": "\uf89f",
 		"variable": "\ue71b"
 	},
-    "codeLens.enable": true
+    "codeLens.enable": true,
+    "signature.floatMaxWidth": 30
 }

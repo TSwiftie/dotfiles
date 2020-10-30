@@ -38,15 +38,15 @@ Plug 'mhinz/vim-startify'
 "模糊搜索
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "缩进线
-"Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 "多行virtual
 Plug 'terryma/vim-multiple-cursors'
 "片段
-Plug 'SirVer/ultisnips',{'for':'markdown'}
+Plug 'SirVer/ultisnips'
 "Plug 'honza/vim-snippets'
 "markdown相关
-Plug 'plasticboy/vim-markdown'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'plasticboy/vim-markdown',{'for':'markdown'}
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' , 'for': 'markdown'}
 "html
 Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
@@ -301,28 +301,27 @@ let g:ale_linters = {
 \}
 
 
-let g:rainbow_active = 0
+let g:rainbow_active = 1
 let g:rainbow_conf = {
-\	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-\	'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
-\	'operators': '_,_',
-\	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-\	'separately': {
-\		'*': {},
-\		'tex': {
-\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
-\		},
-\		'lisp': {
-\			'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
-\		},
-\		'vim': {
-\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
-\		},
-\		'html': {
-\			'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
-\		},
-\		'css': 0,
-\	}
+\   'guifgs': ['lightyellow', 'lightcyan', 'lightblue', 'lightmagenta'],
+\   'ctermfgs': ['lightyellow', 'lightcyan','lightblue', 'lightmagenta'],
+\   'operators': '_,_',
+\   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+\   'separately': {
+\       'tex': {
+\           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+\       },
+\       'lisp': {
+\           'guifgs': ['darkorange3', 'seagreen3', 'royalblue3', 'firebrick'],
+\       },
+\       'vim': {
+\           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+\       },
+\       'html': {
+\           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+\       },
+\       'css': 0,
+\   }
 \}
 
 
@@ -417,6 +416,9 @@ nmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>rn <Plug>(coc-rename)
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
+                                           \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 
 "vim-floaterm
 "let g:floaterm_keymap_new = '<F1>'
@@ -430,10 +432,9 @@ set pyxversion=3
 
 "indentLine
 let g:indentLine_enabled = 1
-let g:indentLine_setConceal = 0
-let g:indentLine_concealcursor = 'inc'
-let g:indentLine_conceallevel = 1
 let g:indentLine_color_term = 200
+"let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
 
 
 "FZF
@@ -449,15 +450,15 @@ map <C-p> :FZF<CR>
 
 "ultisnips
 "设置tab键为触发键
-let g:UltiSnipsExpandTrigger = '<tab>'
-"设置向后跳转键
-let g:UltiSnipsJumpForwardTrigger = '<tab>' 
-"设置向前跳转键
-let g:UltiSnipsJumpBackwardTrigger = '<S-tab>' 
-"设置文件目录
-let g:UltiSnipsSnippetDirectories=["/home/ts/snippets/"]
-"设置打开配置文件时为垂直打开
-let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsExpandTrigger = '<leader><tab>'
+" "设置向后跳转键
+" let g:UltiSnipsJumpForwardTrigger = '<tab>'
+" "设置向前跳转键
+" let g:UltiSnipsJumpBackwardTrigger = '<S-tab>'
+" "设置文件目录
+ let g:UltiSnipsSnippetDirectories=["/home/ts/snippets/"]
+" "设置打开配置文件时为垂直打开
+" let g:UltiSnipsEditSplit="vertical"
 
 
 "vim-markdown
@@ -492,3 +493,92 @@ let g:javascript_plugin_ngdoc = 1
 "auto-pairs
 let g:AutoPairsMapBS = 1
 let g:AutoPairsMultilineClose = 0
+
+
+"markdown-preview
+" set to 1, nvim will open the preview window after entering the markdown buffer
+" default: 0
+let g:mkdp_auto_start = 1
+
+" set to 1, the nvim will auto close current preview window when change
+" from markdown buffer to another buffer
+" default: 1
+let g:mkdp_auto_close = 1
+
+" set to 1, the vim will refresh markdown when save the buffer or
+" leave from insert mode, default 0 is auto refresh markdown as you edit or
+" move the cursor
+" default: 0
+let g:mkdp_refresh_slow = 0
+
+" set to 1, the MarkdownPreview command can be use for all files,
+" by default it can be use in markdown file
+" default: 0
+let g:mkdp_command_for_global = 0
+
+" set to 1, preview server available to others in your network
+" by default, the server listens on localhost (127.0.0.1)
+" default: 0
+let g:mkdp_open_to_the_world = 0
+
+" use custom IP to open preview page
+" useful when you work in remote vim and preview on local browser
+" more detail see: https://github.com/iamcco/markdown-preview.nvim/pull/9
+" default empty
+let g:mkdp_open_ip = ''
+
+" specify browser to open preview page
+" default: ''
+let g:mkdp_browser = ''
+
+" set to 1, echo preview page url in command line when open preview page
+" default is 0
+let g:mkdp_echo_preview_url = 0
+
+" a custom vim function name to open preview page
+" this function will receive url as param
+" default is empty
+let g:mkdp_browserfunc = ''
+
+" options for markdown render
+" mkit: markdown-it options for render
+" katex: katex options for math
+" uml: markdown-it-plantuml options
+" maid: mermaid options
+" disable_sync_scroll: if disable sync scroll, default 0
+" sync_scroll_type: 'middle', 'top' or 'relative', default value is 'middle'
+"   middle: mean the cursor position alway show at the middle of the preview page
+"   top: mean the vim top viewport alway show at the top of the preview page
+"   relative: mean the cursor position alway show at the relative positon of the preview page
+" hide_yaml_meta: if hide yaml metadata, default is 1
+" sequence_diagrams: js-sequence-diagrams options
+" content_editable: if enable content editable for preview page, default: v:false
+" disable_filename: if disable filename header for preview page, default: 0
+let g:mkdp_preview_options = {
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {},
+    \ 'disable_sync_scroll': 0,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1,
+    \ 'sequence_diagrams': {},
+    \ 'flowchart_diagrams': {},
+    \ 'content_editable': v:false,
+    \ 'disable_filename': 1
+    \ }
+" use a custom markdown style must be absolute path
+" like '/Users/username/markdown.css' or expand('~/markdown.css')
+let g:mkdp_markdown_css = ''
+
+" use a custom highlight style must absolute path
+" like '/Users/username/highlight.css' or expand('~/highlight.css')
+let g:mkdp_highlight_css = ''
+
+" use a custom port to start server or random for empty
+let g:mkdp_port = ''
+
+" preview page title
+" ${name} will be replace with the file name
+let g:mkdp_page_title = '「${name}」'
+
