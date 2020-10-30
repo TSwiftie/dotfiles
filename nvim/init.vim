@@ -42,7 +42,7 @@ Plug 'Yggdroot/indentLine'
 "多行virtual
 Plug 'terryma/vim-multiple-cursors'
 "片段
-Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips',{'for': ['c', 'markdown', 'cpp', 'py', 'cmake']}
 "Plug 'honza/vim-snippets'
 "markdown相关
 Plug 'plasticboy/vim-markdown',{'for':'markdown'}
@@ -367,7 +367,7 @@ let g:NERDToggleCheckAllLines = 1
 
 "coc补全插件
 
-let g:coc_global_extensions = ['coc-calc','coc-clangd','coc-cmake','coc-css','coc-css-block-comments','coc-emmet','coc-highlight','coc-html','coc-json','coc-marketplace','coc-scssmodules','coc-translator','coc-tsserver','coc-vimlsp' ]
+let g:coc_global_extensions = ['coc-calc','coc-clangd','coc-cmake','coc-css','coc-css-block-comments','coc-emmet','coc-highlight','coc-html','coc-json','coc-marketplace','coc-scssmodules','coc-translator','coc-tsserver','coc-vimlsp','coc-snippets','coc-ultisnips' ]
 
 set updatetime=100
 
@@ -377,6 +377,7 @@ inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
+
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
