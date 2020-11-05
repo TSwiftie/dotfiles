@@ -232,8 +232,9 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 "设置切换Buffer快捷键"
-nnoremap <c-tab> :bn<cr>
-nnoremap <C-s-tab> :bp<cr>
+nnoremap <leader>j :bn<cr>
+nnoremap <leader>k :bp<cr>
+nnoremap <leader>d :bd<cr>
 " 关闭状态显示空白符号计数
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#whitespace#symbol = '!'
@@ -271,12 +272,12 @@ let g:ale_set_highlights = 0
 let g:ale_sign_error = '✗'
 "let g:ale_sign_error = ''
 "let g:ale_sign_warning = ''
-let g:ale_sign_warning = ''
+"let g:ale_sign_warning = ''
 "let g:ale_sign_warning = ''
 "let g:ale_sign_warning = '△'
 "let g:ale_sign_warning = '☡'
 "let g:ale_sign_warning = 'の'
-"let g:ale_sign_warning = '⚡'
+let g:ale_sign_warning = '⚡'
 "在vim自带的状态栏中整合ale
 let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK']
 "显示Linter名称,出错或警告等相关信息
