@@ -53,6 +53,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 "图标
 Plug 'ryanoasis/vim-devicons'
+"surroundings
+Plug 'tpope/vim-surround'
 call plug#end()
 filetype plugin indent on
 
