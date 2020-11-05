@@ -42,7 +42,7 @@ Plug 'Yggdroot/indentLine'
 "多行virtual
 Plug 'terryma/vim-multiple-cursors'
 "片段
-Plug 'SirVer/ultisnips',{'for': ['c', 'markdown', 'cpp', 'py', 'cmake']}
+Plug 'SirVer/ultisnips',{'for': 'markdown' }
 "Plug 'honza/vim-snippets'
 "markdown相关
 Plug 'plasticboy/vim-markdown',{'for':'markdown'}
@@ -320,7 +320,6 @@ let g:rainbow_conf = {
 \       'html': {
 \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
 \       },
-\       'css': 0,
 \   }
 \}
 
@@ -582,4 +581,3 @@ let g:mkdp_port = ''
 " preview page title
 " ${name} will be replace with the file name
 let g:mkdp_page_title = '「${name}」'
-
