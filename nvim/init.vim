@@ -30,6 +30,7 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 "等号对齐
 Plug 'godlygeek/tabular'
 "基于lsp语法高亮
+"Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 "Plug 'sheerun/vim-polyglot'
 "Plug 'octol/vim-cpp-enhanced-highlight'
@@ -55,6 +56,8 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'ryanoasis/vim-devicons'
 "surroundings
 Plug 'tpope/vim-surround'
+"suda.vim
+Plug 'lambdalisue/suda.vim'
 call plug#end()
 filetype plugin indent on
 
@@ -155,7 +158,6 @@ func SetTitle()
 	"新建文件后，自动定位到文件末尾
 endfunc
 autocmd BufNewFile * normal G
-autocmd FocusLost,InsertLeave,TextChanged * :wa
 
 
 "select all
@@ -167,7 +169,15 @@ nnoremap <leader>ra :FloatermNew ranger<cr>
 "floaterm lazygit
 nnoremap <leader>lg :FloatermNew lazygit<cr>
 "floaterm run
-nnoremap <leader>run : FloatermNew run %<cr>
+nnoremap <leader>run :FloatermNew run %<cr>
+"increase window height
+nnoremap <leader>hi :res +5<cr>
+"decrease window height
+nnoremap <leader>hd :res -5<cr>
+"increase window width
+nnoremap <leader>wi :vertical res +5<cr>
+"decrease window width
+nnoremap <leader>wd :vertical res -5<cr>
 
 
 
@@ -221,7 +231,7 @@ colorscheme dracula
 "colorscheme config
 set background=dark
 set t_Co=256
-hi Normal ctermbg=NONE guibg=NONE
+"hi Normal ctermbg=NONE guibg=NONE
 
 
 
@@ -465,11 +475,12 @@ let g:UltiSnipsExpandTrigger = '<leader><tab>'
 
 
 "vim-markdown
-let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_folding_disabled = 0
 let g:vim_markdown_conceal = 0
 let g:tex_conceal = ""
 let g:vim_markdown_math = 1
 let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_folding_style_pythonic = 1
 
 "html
 let g:user_emmet_install_global = 0
@@ -501,7 +512,7 @@ let g:AutoPairsMultilineClose = 0
 "markdown-preview
 " set to 1, nvim will open the preview window after entering the markdown buffer
 " default: 0
-let g:mkdp_auto_start = 1
+let g:mkdp_auto_start = 0
 
 " set to 1, the nvim will auto close current preview window when change
 " from markdown buffer to another buffer
@@ -584,3 +595,7 @@ let g:mkdp_port = ''
 " preview page title
 " ${name} will be replace with the file name
 let g:mkdp_page_title = '「${name}」'
+
+
+"suda
+let g:suda_smart_edit = 1
