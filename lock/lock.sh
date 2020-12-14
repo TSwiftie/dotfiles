@@ -5,14 +5,11 @@ blank='#00000000'  # blank
 background='#1A5E81AC'
 foreground='#D8DEE9FF'  # text
 
-primary='#BF616AFF'  # default
-alert='#EBCB8BFF'  # wrong
+primary='#EBCB8BFF'  # default
+alert='#BF616AFF'  # wrong
 verifying='#A3BE8CFF'  # verifying
 
 i3lock \
---image="/home/mir/Pictures/Background/wallpaper.png" \
-\
---screen 1 \
 --indicator \
 --keylayout 2 \
 --force-clock \
@@ -46,7 +43,7 @@ i3lock \
 --wrong-align=0 \
 --modif-align=0 \
 \
---blur 5              \
+--blur=5              \
 --indicator           \
 --keylayout 2         \
 \
@@ -61,4 +58,8 @@ i3lock \
 #--time-font=noto-sans    \
 #--datefont=noto-sans    \
 # etc
+#--image="/home/ts/Pictures/wallpapers/wallhaven/wallhaven-8395mk.png" \
+#--centered \
+#--screen 1 \
+#\
 
