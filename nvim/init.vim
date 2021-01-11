@@ -19,6 +19,7 @@ Plug 'tpope/vim-surround'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'kevinhwang91/rnvimr'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'scrooloose/nerdcommenter' 
 call plug#end()
 filetype plugin on
 
@@ -219,6 +220,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#whitespace#symbol = '!'
+nnoremap <leader>j :bn<cr>
+nnoremap <leader>k :bp<cr>
+nnoremap <leader>d :bd<cr>
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
