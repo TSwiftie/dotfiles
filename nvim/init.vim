@@ -20,6 +20,10 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'kevinhwang91/rnvimr'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'scrooloose/nerdcommenter' 
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
 call plug#end()
 filetype plugin on
 
@@ -205,6 +209,16 @@ nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
                                            \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
+" mappings
+nnoremap <silent> <space><space> :<C-u>CocFzfList<CR>
+nnoremap <silent> <space>a       :<C-u>CocFzfList diagnostics<CR>
+nnoremap <silent> <space>b       :<C-u>CocFzfList diagnostics --current-buf<CR>
+nnoremap <silent> <space>c       :<C-u>CocFzfList commands<CR>
+nnoremap <silent> <space>e       :<C-u>CocFzfList extensions<CR>
+nnoremap <silent> <space>l       :<C-u>CocFzfList <CR>
+nnoremap <silent> <space>o       :<C-u>CocFzfList outline<CR>
+nnoremap <silent> <space>s       :<C-u>CocFzfList symbols<CR>
+nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR>
 
 
 set pyxversion=3
@@ -405,3 +419,61 @@ let g:rnvimr_presets = [
 "
 "
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+
+
+
+
+
+" 开启gitgutter
+let g:gigutter_enable = 1
+" 开启行高亮
+let g:gitgutter_highlight_lines = 0
+" 开启行号高亮
+let g:gitgutter_highlight_linenrs = 1
+" 关闭默认快捷键
+let g:gitgutter_map_keys = 0
+" 折叠相关
+" set foldtext=gitgutter#fold#foldtext()
+" 文件更改数量超过500将会压缩显示
+let g:gitgutter_max_signs = 500
+let g:gitgutter_preview_win_floating = 1
+
+" 关闭column的提示符号
+let g:gitgutter_signs = 1
+let g:gitgutter_sign_added = '▎'
+let g:gitgutter_sign_modified = '▎'
+let g:gitgutter_sign_removed = '▎'
+let g:gitgutter_sign_removed_first_line = '▔'
+let g:gitgutter_sign_modified_removed = '▋'
+
+highlight link GitGutterAddLineNr SignifySignAdd
+highlight link GitGutterChangeLineNr SignifySignChange
+highlight link GitGutterDeleteLineNr SignifySignDelete
+highlight link GitGutterChangeDeleteLineNr SignifySignDelete
+
+
+
+
+
+let g:indentLine_bufTypeExclude = ["help", "quickfix", "terminal", "prompt", "nofile"]
+let g:indentLine_fileTypeExclude = [
+            \ 'terminal',
+            \ 'defx',
+            \ 'startify',
+            \ 'terminal',
+            \ 'coc-explorer',
+            \ 'json',
+            \ 'jsonc',
+            \ 'vista',
+            \ 'help',
+            \ 'nerdtree',
+            \ 'tagbar',
+            \ 'vimfiler',
+            \ 'markdown',
+            \ 'minimap',
+            \ 'dashboard',
+            \ 'tex',
+            \ 'vimwiki',
+            \ 'man',
+            \ 'vista_markdown',
+            \]
