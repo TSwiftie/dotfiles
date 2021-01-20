@@ -24,6 +24,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
+Plug 'vimwiki/vimwiki'
 call plug#end()
 filetype plugin on
 
@@ -47,7 +49,7 @@ set magic
 set guioptions-=T
 set guioptions-=m
 "语法高亮
-set syntax=on
+syntax on
 set confirm
 set autoindent
 set cindent
@@ -477,3 +479,10 @@ let g:indentLine_fileTypeExclude = [
             \ 'man',
             \ 'vista_markdown',
             \]
+
+
+vmap <leader>d :DogeGenerate<CR>
+
+
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
