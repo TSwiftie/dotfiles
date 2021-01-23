@@ -41,7 +41,7 @@ set noeb
 set autoread
 filetype plugin on
 "剪切板
-set clipboard=unnamed
+set clipboard+=unnamedplus
 set nobackup
 set autowrite
 set ruler
@@ -79,14 +79,14 @@ set wildmenu
 set backspace=2
 set mouse=a
 set selection=exclusive
-set selectmode=mouse,key
+set selectmode=key
 set report=0
 set showmatch
 set matchtime=1
 set scrolloff=5
 set smartindent
 set showmode
-set showcmd
+"set showcmd
 set shortmess-=5
 au BufRead,BufNewFile * setfiletype txt
 let mapleader=" "
