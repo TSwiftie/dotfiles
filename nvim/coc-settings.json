@@ -65,7 +65,7 @@
 		"$HOME/.config/nvim/Ultisnips/",
 		"$HOME/.config/nvim/plugged/vim-snippets/UltiSnips/"
 	],
-	"coc.preferences.formatOnSaveFiletypes": ["json", "python", "c"],
+	//"coc.preferences.formatOnSaveFiletypes": ["json", "python", "c", "cpp"],
 	"signature.target": "float",
 	"yank.enableCompletion": false,
 	"python.autoComplete.addBrackets": true,

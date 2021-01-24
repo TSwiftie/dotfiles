@@ -21,9 +21,10 @@ Plug 'kevinhwang91/rnvimr'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'scrooloose/nerdcommenter' 
 Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+"Plug 'junegunn/fzf'
+"Plug 'junegunn/fzf.vim'
+"Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 Plug 'vimwiki/vimwiki'
 call plug#end()
@@ -90,6 +91,7 @@ set showmode
 set shortmess-=5
 au BufRead,BufNewFile * setfiletype txt
 let mapleader=" "
+nnoremap <Backspace> :noh<CR>
 
 
 
@@ -202,6 +204,7 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+autocmd CursorHold * silent call CocActionAsync('highlight')
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
@@ -212,15 +215,15 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() :
                                            \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " mappings
-nnoremap <silent> <space><space> :<C-u>CocFzfList<CR>
-nnoremap <silent> <space>a       :<C-u>CocFzfList diagnostics<CR>
-nnoremap <silent> <space>b       :<C-u>CocFzfList diagnostics --current-buf<CR>
-nnoremap <silent> <space>c       :<C-u>CocFzfList commands<CR>
-nnoremap <silent> <space>e       :<C-u>CocFzfList extensions<CR>
-nnoremap <silent> <space>l       :<C-u>CocFzfList <CR>
-nnoremap <silent> <space>o       :<C-u>CocFzfList outline<CR>
-nnoremap <silent> <space>s       :<C-u>CocFzfList symbols<CR>
-nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR>
+"nnoremap <silent> <space><space> :<C-u>CocFzfList<CR>
+"nnoremap <silent> <space>a       :<C-u>CocFzfList diagnostics<CR>
+"nnoremap <silent> <space>b       :<C-u>CocFzfList diagnostics --current-buf<CR>
+"nnoremap <silent> <space>c       :<C-u>CocFzfList commands<CR>
+"nnoremap <silent> <space>e       :<C-u>CocFzfList extensions<CR>
+"nnoremap <silent> <space>l       :<C-u>CocFzfList <CR>
+"nnoremap <silent> <space>o       :<C-u>CocFzfList outline<CR>
+"nnoremap <silent> <space>s       :<C-u>CocFzfList symbols<CR>
+"nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR>
 
 
 set pyxversion=3
@@ -486,3 +489,51 @@ vmap <leader>d :DogeGenerate<CR>
 
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+
+
+
+let g:Lf_WindowHeight = 0.2
+" Show icons, icons are shown by default
+let g:Lf_ShowDevIcons = 1
+" For GUI vim, the icon font can be specify like this, for example
+let g:Lf_DevIconsFont = "FiraCode Nerd Font Mono"
+let g:Lf_HideHelp = 1
+" 使用leaderf file path的时候不更改目录到path
+let g:Lf_NoChdir = 1
+let g:Lf_UseCache = 0
+let g:Lf_UseVersionControlTool = 0
+let g:Lf_IgnoreCurrentBufferName = 1
+" popup mode
+"let g:Lf_WindowPosition = 'popup'
+"let g:Lf_PreviewInPopup = 1
+let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "FiraCode Nerd Font Mono" }
+let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
+let g:Lf_GtagsAutoGenerate = 0
+let g:Lf_Gtagslabel = 'native-pygments'
+
+function! LeaderfFileWithWiki(query) abort
+    if empty(a:query) && &ft ==? 'vimwiki' && match(expand('%'), expand(g:vimwiki_path)) > -1
+        exec "LeaderfFile " . g:vimwiki_path
+    else
+        exec "LeaderfFile " . a:query
+    endif
+endfunction
+
+function! LeaderfRgWithWiki(query) abort
+    if &ft ==? 'vimwiki' && match(expand('%'), expand(g:vimwiki_path)) > -1
+        exec 'Leaderf rg -F -e "" ' . g:vimwiki_path
+    else
+        exec 'Leaderf rg -F -e ' . leaderf#Rg#visual()
+    endif
+endfunction
+
+nnoremap <M-f> :call LeaderfFileWithWiki("")<CR>
+nnoremap <M-F> :call LeaderfFileWithWiki($HOME)<CR>
+nnoremap <M-s> :call LeaderfRgWithWiki("")<cr>
+nnoremap <M-b> :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+nnoremap <M-c> :LeaderfCommand<cr>
+nnoremap <M-t> :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+nnoremap <M-T> :LeaderfBufTagAll<cr>
+nnoremap ?     :LeaderfLineAll<CR>
+nnoremap <M-r> :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+nnoremap <M-w> :<C-U><C-R>=printf("Leaderf! window %s", "")<CR><CR>
