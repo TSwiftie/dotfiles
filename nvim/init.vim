@@ -195,16 +195,21 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
 endfunction
+" 函数文档
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+" 函数参数的文档
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
+
+
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
@@ -213,17 +218,6 @@ nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
                                            \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-" mappings
-"nnoremap <silent> <space><space> :<C-u>CocFzfList<CR>
-"nnoremap <silent> <space>a       :<C-u>CocFzfList diagnostics<CR>
-"nnoremap <silent> <space>b       :<C-u>CocFzfList diagnostics --current-buf<CR>
-"nnoremap <silent> <space>c       :<C-u>CocFzfList commands<CR>
-"nnoremap <silent> <space>e       :<C-u>CocFzfList extensions<CR>
-"nnoremap <silent> <space>l       :<C-u>CocFzfList <CR>
-"nnoremap <silent> <space>o       :<C-u>CocFzfList outline<CR>
-"nnoremap <silent> <space>s       :<C-u>CocFzfList symbols<CR>
-"nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR>
 
 
 set pyxversion=3
