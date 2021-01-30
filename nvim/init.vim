@@ -8,7 +8,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/indentLine'
 Plug 'ryanoasis/vim-devicons'
-"Plug 'mg979/vim-xtabline'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/vim-easy-align'
@@ -16,7 +15,6 @@ Plug 'itchyny/calendar.vim'
 Plug 'lambdalisue/suda.vim'
 Plug 'tpope/vim-surround'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'kevinhwang91/rnvimr'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'scrooloose/nerdcommenter' 
 Plug 'airblade/vim-gitgutter'
@@ -25,7 +23,6 @@ Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 "Plug 'junegunn/fzf.vim'
 "Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
-Plug 'vimwiki/vimwiki'
 Plug 'plasticboy/vim-markdown',{'for':'markdown'}
 "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' , 'for': 'markdown'}
 Plug 'dhruvasagar/vim-table-mode'
@@ -150,6 +147,18 @@ set background=dark
 set t_Co=256
 hi Normal ctermbg=NONE guibg=NONE
 
+
+
+
+"floaterm ranger
+nnoremap <leader>ra :FloatermNew ranger<cr>
+"floaterm lazygit
+nnoremap <leader>lg :FloatermNew lazygit<cr>
+"floaterm run
+nnoremap <leader>run :FloatermNew run %<cr>
+
+
+
 "coc
 let g:coc_global_extensions = [
     \ 'coc-marketplace',
@@ -210,6 +219,7 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 " 函数参数的文档
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
 
 " Formatting selected code.
@@ -250,150 +260,8 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 "calendar
-nmap \c :Calendar -view=clock<cr>
+nmap \cc :Calendar -view=clock<cr>
 nmap \ca :Calendar<cr>
-
-
-
-" How each level is indented and what to prepend.
-" This could make the display more compact or more spacious.
-" e.g., more compact: ["▸ ", ""]
-" Note: this option only works the LSP executives, doesn't work for `:Vista ctags`.
-let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
-
-" Executive used when opening vista sidebar without specifying it.
-" See all the avaliable executives via `:echo g:vista#executives`.
-let g:vista_default_executive = 'ctags'
-
-" Set the executive for some filetypes explicitly. Use the explicit executive
-" instead of the default one for these filetypes when using `:Vista` without
-" specifying the executive.
-let g:vista_executive_for = {
-  \ 'cpp': 'vim_lsp',
-  \ 'php': 'vim_lsp',
-  \ }
-
-" Declare the command including the executable and options used to generate ctags output
-" for some certain filetypes.The file path will be appened to your custom command.
-" For example:
-let g:vista_ctags_cmd = {
-      \ 'haskell': 'hasktags -x -o - -c',
-      \ }
-
-" To enable fzf's preview window set g:vista_fzf_preview.
-" The elements of g:vista_fzf_preview will be passed as arguments to fzf#vim#with_preview()
-" For example:
-let g:vista_fzf_preview = ['right:50%']
-" Ensure you have installed some decent font to show these pretty symbols, then you can enable icon for the kind.
-let g:vista#renderer#enable_icon = 1
-
-" The default icons can't be suitable for all the filetypes, you can extend it as you wish.
-let g:vista#renderer#icons = {
-\   "function": "\uf794",
-\   "variable": "\uf71b",
-\  }
-
-
-
-" Make Ranger replace Netrw and be the file explorer
-let g:rnvimr_enable_ex = 1
-
-" Make Ranger to be hidden after picking a file
-let g:rnvimr_enable_picker = 1
-
-" Disable a border for floating window
-let g:rnvimr_draw_border = 0
-
-" Hide the files included in gitignore
-let g:rnvimr_hide_gitignore = 1
-
-" Change the border's color
-let g:rnvimr_border_attr = {'fg': 14, 'bg': -1}
-
-" Make Neovim wipe the buffers corresponding to the files deleted by Ranger
-let g:rnvimr_enable_bw = 1
-
-" Add a shadow window, value is equal to 100 will disable shadow
-let g:rnvimr_shadow_winblend = 100
-
-" Draw border with both
-let g:rnvimr_ranger_cmd = 'ranger --cmd="set draw_borders both"'
-
-" Link CursorLine into RnvimrNormal highlight in the Floating window
-highlight link RnvimrNormal CursorLine
-
-nnoremap <silent> <M-o> :RnvimrToggle<CR>
-tnoremap <silent> <M-o> <C-\><C-n>:RnvimrToggle<CR>
-
-" Resize floating window by all preset layouts
-tnoremap <silent> <M-i> <C-\><C-n>:RnvimrResize<CR>
-
-" Resize floating window by special preset layouts
-tnoremap <silent> <M-l> <C-\><C-n>:RnvimrResize 1,8,9,11,5<CR>
-
-" Resize floating window by single preset layout
-tnoremap <silent> <M-y> <C-\><C-n>:RnvimrResize 6<CR>
-
-" Map Rnvimr action
-let g:rnvimr_action = {
-            \ '<C-t>': 'NvimEdit tabedit',
-            \ '<C-x>': 'NvimEdit split',
-            \ '<C-v>': 'NvimEdit vsplit',
-            \ 'gw': 'JumpNvimCwd',
-            \ 'yw': 'EmitRangerCwd'
-            \ }
-
-" Add views for Ranger to adapt the size of floating window
-let g:rnvimr_ranger_views = [
-            \ {'minwidth': 90, 'ratio': []},
-            \ {'minwidth': 50, 'maxwidth': 89, 'ratio': [1,1]},
-            \ {'maxwidth': 49, 'ratio': [1]}
-            \ ]
-
-" Customize the initial layout
-let g:rnvimr_layout = {
-            \ 'relative': 'editor',
-            \ 'width': float2nr(round(0.7 * &columns)),
-            \ 'height': float2nr(round(0.7 * &lines)),
-            \ 'col': float2nr(round(0.15 * &columns)),
-            \ 'row': float2nr(round(0.15 * &lines)),
-            \ 'style': 'minimal'
-            \ }
-
-" Customize multiple preset layouts
-" '{}' represents the initial layout
-let g:rnvimr_presets = [
-            \ {'width': 0.600, 'height': 0.600},
-            \ {},
-            \ {'width': 0.800, 'height': 0.800},
-            \ {'width': 0.950, 'height': 0.950},
-            \ {'width': 0.500, 'height': 0.500, 'col': 0, 'row': 0},
-            \ {'width': 0.500, 'height': 0.500, 'col': 0, 'row': 0.5},
-            \ {'width': 0.500, 'height': 0.500, 'col': 0.5, 'row': 0},
-            \ {'width': 0.500, 'height': 0.500, 'col': 0.5, 'row': 0.5},
-            \ {'width': 0.500, 'height': 1.000, 'col': 0, 'row': 0},
-            \ {'width': 0.500, 'height': 1.000, 'col': 0.5, 'row': 0},
-            \ {'width': 1.000, 'height': 0.500, 'col': 0, 'row': 0},
-            \ {'width': 1.000, 'height': 0.500, 'col': 0, 'row': 0.5}
-            \ ]
-
-" Fullscreen for initial layout
-" let g:rnvimr_layout = {
-"            \ 'relative': 'editor',
-"            \ 'width': float2nr(1.0 * &columns),
-"            \ 'height': float2nr(1.0 * &lines) - 2,
-"            \ 'col': 0,
-"            \ 'row': 0,
-"            \ 'style': 'minimal'
-"            \ }
-"
-" Only use initial preset layout
-" let g:rnvimr_presets = [{}]
-"
-"
-nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
-
-
 
 
 
@@ -455,11 +323,6 @@ let g:indentLine_fileTypeExclude = [
 vmap <leader>D :DogeGenerate<CR>
 
 
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
-
-
-
 let g:Lf_WindowHeight = 0.2
 " Show icons, icons are shown by default
 let g:Lf_ShowDevIcons = 1
@@ -505,6 +368,5 @@ nnoremap <M-T> :LeaderfBufTagAll<cr>
 nnoremap ?     :LeaderfLineAll<CR>
 nnoremap <M-r> :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 nnoremap <M-w> :<C-U><C-R>=printf("Leaderf! window %s", "")<CR><CR>
-
 
 let g:table_mode_corner='|'
