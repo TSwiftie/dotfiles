@@ -13,7 +13,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/vim-easy-align'
 Plug 'itchyny/calendar.vim'
-Plug 'junegunn/goyo.vim'
 Plug 'lambdalisue/suda.vim'
 Plug 'tpope/vim-surround'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
@@ -27,12 +26,15 @@ Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 "Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 Plug 'vimwiki/vimwiki'
+Plug 'plasticboy/vim-markdown',{'for':'markdown'}
+"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' , 'for': 'markdown'}
+Plug 'dhruvasagar/vim-table-mode'
 call plug#end()
 filetype plugin on
 
 ""
 "设置建议每一行的最大宽度
-set cc=80
+"set cc=80
 "相对行号
 set relativenumber
 set nowrap
@@ -146,7 +148,7 @@ colorscheme dracula
 "colorscheme config
 set background=dark
 set t_Co=256
-"hi Normal ctermbg=NONE guibg=NONE
+hi Normal ctermbg=NONE guibg=NONE
 
 "coc
 let g:coc_global_extensions = [
@@ -249,7 +251,7 @@ nmap ga <Plug>(EasyAlign)
 
 "calendar
 nmap \c :Calendar -view=clock<cr>
-nmap \\ :Calendar<cr>
+nmap \ca :Calendar<cr>
 
 
 
@@ -291,34 +293,6 @@ let g:vista#renderer#icons = {
 \   "variable": "\uf71b",
 \  }
 
-
-
-function! s:goyo_enter()
-  if executable('tmux') && strlen($TMUX)
-    silent !tmux set status off
-    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
-  endif
-  set noshowmode
-  set noshowcmd
-  set scrolloff=999
-  Limelight
-  " ...
-endfunction
-
-function! s:goyo_leave()
-  if executable('tmux') && strlen($TMUX)
-    silent !tmux set status on
-    silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
-  endif
-  set showmode
-  set showcmd
-  set scrolloff=5
-  Limelight!
-  " ...
-endfunction
-
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 
 " Make Ranger replace Netrw and be the file explorer
@@ -478,7 +452,7 @@ let g:indentLine_fileTypeExclude = [
             \]
 
 
-vmap <leader>d :DogeGenerate<CR>
+vmap <leader>D :DogeGenerate<CR>
 
 
 let g:vimwiki_list = [{'path': '~/vimwiki/',
@@ -531,3 +505,6 @@ nnoremap <M-T> :LeaderfBufTagAll<cr>
 nnoremap ?     :LeaderfLineAll<CR>
 nnoremap <M-r> :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 nnoremap <M-w> :<C-U><C-R>=printf("Leaderf! window %s", "")<CR><CR>
+
+
+let g:table_mode_corner='|'
