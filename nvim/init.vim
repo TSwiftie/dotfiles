@@ -193,11 +193,11 @@ let g:coc_snippet_next = '<TAB>'
 let g:coc_snippet_prev = '<S-TAB>'
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
 "popup
-nmap <Leader>t <plug>(coc-translator-p)
-vmap <Leader>t <Plug>(coc-translator-pv)
+nmap <Leader>e <plug>(coc-translator-p)
+vmap <Leader>e <Plug>(coc-translator-pv)
 "echo
-nmap <Leader>e <Plug>(coc-translator-e)
-vmap <Leader>e <Plug>(coc-translator-ev)
+nmap <Leader>t <Plug>(coc-translator-e)
+vmap <Leader>t <Plug>(coc-translator-ev)
 "replace
 nmap <Leader>r <Plug>(coc-translator-r)
 vmap <Leader>r <Plug>(coc-translator-rv)
