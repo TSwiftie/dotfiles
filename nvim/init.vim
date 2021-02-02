@@ -24,7 +24,7 @@ Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 "Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 Plug 'plasticboy/vim-markdown',{'for':'markdown'}
-"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' , 'for': 'markdown'}
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' , 'for': 'markdown'}
 Plug 'dhruvasagar/vim-table-mode'
 call plug#end()
 filetype plugin on
@@ -163,7 +163,7 @@ nnoremap <leader>run :FloatermNew run %<cr>
 let g:coc_global_extensions = [
     \ 'coc-marketplace',
     \ 'coc-clangd',
-    \ 'coc-cmake',
+    \ 'coc-go',
     \ 'coc-highlight',
 	\ 'coc-diagnostic',
 	\ 'coc-gitignore',
