@@ -26,6 +26,9 @@ Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 Plug 'plasticboy/vim-markdown',{'for':'markdown'}
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' , 'for': 'markdown'}
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'hrsh7th/vim-eft'
+Plug 'rhysd/accelerated-jk'
+Plug 'psliwka/vim-smoothie'
 call plug#end()
 filetype plugin on
 
@@ -370,3 +373,26 @@ nnoremap <M-r> :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 nnoremap <M-w> :<C-U><C-R>=printf("Leaderf! window %s", "")<CR><CR>
 
 let g:table_mode_corner='|'
+
+
+
+nmap ; <Plug>(eft-repeat)
+xmap ; <Plug>(eft-repeat)
+
+nmap f <Plug>(eft-f)
+xmap f <Plug>(eft-f)
+omap f <Plug>(eft-f)
+nmap F <Plug>(eft-F)
+xmap F <Plug>(eft-F)
+omap F <Plug>(eft-F)
+
+nmap t <Plug>(eft-t)
+xmap t <Plug>(eft-t)
+omap t <Plug>(eft-t)
+nmap T <Plug>(eft-T)
+xmap T <Plug>(eft-T)
+omap T <Plug>(eft-T)
+
+nmap j <Plug>(accelerated_jk_gj)
+nmap k <Plug>(accelerated_jk_gk)
+
