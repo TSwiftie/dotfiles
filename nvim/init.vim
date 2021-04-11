@@ -547,10 +547,10 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
-hi rainbowcol1 guifg=lightblue
-hi rainbowcol2 guifg=lightyellow
-hi rainbowcol3 guifg=lightcyan
-hi rainbowcol4 guifg=lightmagenta
-hi rainbowcol5 guifg=lightred
-hi rainbowcol6 guifg=lightgray
-hi rainbowcol7 guifg=lightgreen
+hi rainbowcol1 guifg=lightred
+hi rainbowcol2 guifg=lightorange
+hi rainbowcol3 guifg=lightyellow
+hi rainbowcol4 guifg=lightgreen
+hi rainbowcol5 guifg=lightgrey
+hi rainbowcol6 guifg=lightblue
+hi rainbowcol7 guifg=lightgray
