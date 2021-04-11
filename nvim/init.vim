@@ -1,6 +1,14 @@
+"████████╗███████╗██╗    ██╗██╗███████╗████████╗██╗███████╗
+"╚══██╔══╝██╔════╝██║    ██║██║██╔════╝╚══██╔══╝██║██╔════╝
+"   ██║   ███████╗██║ █╗ ██║██║█████╗     ██║   ██║█████╗  
+"   ██║   ╚════██║██║███╗██║██║██╔══╝     ██║   ██║██╔══╝  
+"   ██║   ███████║╚███╔███╔╝██║██║        ██║   ██║███████╗
+"   ╚═╝   ╚══════╝ ╚══╝╚══╝ ╚═╝╚═╝        ╚═╝   ╚═╝╚══════╝
 set nocompatible
 call plug#begin(stdpath('data').'/plugged')
 Plug 'dracula/vim',{'as':'dracula'}
+Plug 'arcticicestudio/nord-vim'
+Plug 'joshdick/onedark.vim'
 Plug 'luochen1990/rainbow'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'voldikss/vim-floaterm'
@@ -15,7 +23,7 @@ Plug 'itchyny/calendar.vim'
 Plug 'lambdalisue/suda.vim'
 Plug 'tpope/vim-surround'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'jackguo380/vim-lsp-cxx-highlight'
+"Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'scrooloose/nerdcommenter' 
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
@@ -29,6 +37,11 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'hrsh7th/vim-eft'
 Plug 'rhysd/accelerated-jk'
 Plug 'psliwka/vim-smoothie'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'romgrk/nvim-treesitter-context'
+Plug 'p00f/nvim-ts-rainbow'
+"Plug 'dense-analysis/ale'
 call plug#end()
 filetype plugin on
 
@@ -116,29 +129,14 @@ if (empty($TMUX))
   endif
 endif
 
-
-
-
-"nordic theme config
-" let g:nord_bold = 0
-" let g:nord_uniform_status_lines = 1
-" let g:nord_italic = 1
-" let g:nord_underline = 1
-" let g:nord_italic_comments = 1
-"
-
-
-"gruvbox theme config
-" let g:gruvbox_sign_column='bg0'
-" let g:gruvbox_color_column='bg0'
-" let g:gruvbox_number_column='bg0'
-"
+let g:nord_bold = 0
+let g:nord_bold_vertical_split_line = 0
 
 
 
 "colorscheme palenight
-"colorscheme onedark
-colorscheme dracula
+colorscheme onedark
+"colorscheme dracula
 "colorscheme one
 "colorscheme nord
 "colorscheme gruvbox
@@ -248,6 +246,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#whitespace#symbol = '!'
+"let g:airline_theme='onedark'
 nnoremap <leader>j :bn<cr>
 nnoremap <leader>k :bp<cr>
 nnoremap <leader>d :bd<cr>
@@ -396,3 +395,162 @@ omap T <Plug>(eft-T)
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
 
+let g:vim_markdown_folding_disabled = 1
+
+
+
+"ale
+"let g:ale_lint_on_enter = 0
+"let g:ale_disable_lsp = 1
+"let g:ale_sign_error = '✗'
+"let g:ale_sign_warning = '⚡'
+"let g:airline#extensions#ale#enabled = 1
+"let g:ale_echo_msg_error_str = 'E'
+"let g:ale_echo_msg_warning_str = 'W'
+"let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+"let g:ale_linters = {
+"\   'c': ['clangtidy'],
+"\   'cpp': ['clangtidy'],
+"\   'python': ['pylint'],
+"\}
+"let g:ale_set_highlights = 0
+"let g:ale_list_window_size = 5
+"let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰']
+"let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK']
+
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    custom_captures = {
+      -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
+      ["foo.bar"] = "Identifier",
+    },
+  },
+}
+EOF
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    },
+  },
+}
+EOF
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  indent = {
+    enable = true
+  }
+}
+EOF
+
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  textobjects = {
+    select = {
+      enable = true,
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+
+        -- Or you can define your own textobjects like this
+        ["iF"] = {
+          python = "(function_definition) @function",
+          cpp = "(function_definition) @function",
+          c = "(function_definition) @function",
+          java = "(method_declaration) @function",
+        },
+      },
+    },
+  },
+}
+EOF
+
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  textobjects = {
+    swap = {
+      enable = true,
+      swap_next = {
+        ["<leader>a"] = "@parameter.inner",
+      },
+      swap_previous = {
+        ["<leader>A"] = "@parameter.inner",
+      },
+    },
+  },
+}
+EOF
+
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  textobjects = {
+    move = {
+      enable = true,
+      goto_next_start = {
+        ["]m"] = "@function.outer",
+        ["]]"] = "@class.outer",
+      },
+      goto_next_end = {
+        ["]M"] = "@function.outer",
+        ["]["] = "@class.outer",
+      },
+      goto_previous_start = {
+        ["[m"] = "@function.outer",
+        ["[["] = "@class.outer",
+      },
+      goto_previous_end = {
+        ["[M"] = "@function.outer",
+        ["[]"] = "@class.outer",
+      },
+    },
+  },
+}
+EOF
+
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  textobjects = {
+    lsp_interop = {
+      enable = true,
+      peek_definition_code = {
+        ["df"] = "@function.outer",
+        ["dF"] = "@class.outer",
+      },
+    },
+  },
+}
+EOF
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  rainbow = {
+    enable = true,
+    extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
+  }
+}
+EOF
+
+hi rainbowcol1 guifg=lightblue
+hi rainbowcol2 guifg=lightyellow
+hi rainbowcol3 guifg=lightcyan
+hi rainbowcol4 guifg=lightmagenta
+hi rainbowcol5 guifg=lightred
+hi rainbowcol6 guifg=lightgray
+hi rainbowcol7 guifg=lightgreen
