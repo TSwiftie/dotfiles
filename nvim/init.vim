@@ -8,6 +8,7 @@ set nocompatible
 call plug#begin(stdpath('data').'/plugged')
 Plug 'dracula/vim',{'as':'dracula'}
 Plug 'arcticicestudio/nord-vim'
+Plug 'sainnhe/sonokai'
 Plug 'joshdick/onedark.vim'
 Plug 'luochen1990/rainbow'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -129,16 +130,18 @@ if (empty($TMUX))
   endif
 endif
 
-let g:nord_bold = 0
-let g:nord_bold_vertical_split_line = 0
 
-
+"sonokai theme
+let g:sonokai_style = 'atlantis'
+let g:sonokai_enable_italic = 1
+let g:sonokai_disable_italic_comment = 1
 
 "colorscheme palenight
-colorscheme onedark
+"colorscheme onedark
 "colorscheme dracula
 "colorscheme one
 "colorscheme nord
+colorscheme sonokai
 "colorscheme gruvbox
 
 
@@ -180,7 +183,7 @@ let g:coc_global_extensions = [
 	\ 'coc-yank']
 set updatetime=100
 set shortmess+=c
-inoremap <silent><expr> <TAB>
+inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
@@ -232,21 +235,18 @@ nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
                                            \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-
 set pyxversion=3
-
 
 "auto-pairs
 let g:AutoPairsMapBS = 1
 let g:AutoPairsMultilineClose = 0
-
 
 "airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#whitespace#symbol = '!'
-"let g:airline_theme='onedark'
+"let g:airline_theme='space-nvim'
 nnoremap <leader>j :bn<cr>
 nnoremap <leader>k :bp<cr>
 nnoremap <leader>d :bd<cr>
@@ -448,7 +448,7 @@ EOF
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   indent = {
-    enable = true
+    enable = false
   }
 }
 EOF
