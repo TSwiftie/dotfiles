@@ -586,7 +586,7 @@ require'bufferline'.setup{
     options = {
         view = "default",
         mapping = true,
-        modified_icon = '●',
+        modified_icon = '✥',
         left_trunc_marker = '',
         right_trunc_marker = '',
         max_name_length = 18,
