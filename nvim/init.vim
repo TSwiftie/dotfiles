@@ -135,19 +135,19 @@ endif
 
 
 "sonokai theme
-let g:sonokai_style = 'atlantis'
-let g:sonokai_enable_italic = 0
-let g:sonokai_disable_italic_comment = 1
-let g:sonokai_transparent_background = 0
-let g:sonokai_better_performance = 1
-let g:sonokai_diagnostic_text_highlight = 0
+"let g:sonokai_style = 'atlantis'
+"let g:sonokai_enable_italic = 0
+"let g:sonokai_disable_italic_comment = 1
+"let g:sonokai_transparent_background = 0
+"let g:sonokai_better_performance = 1
+"let g:sonokai_diagnostic_text_highlight = 0
 
 "colorscheme palenight
 "colorscheme onedark
-"colorscheme dracula
+colorscheme dracula
 "colorscheme one
 "colorscheme nord
-colorscheme sonokai
+"colorscheme sonokai
 "colorscheme gruvbox
 
 
