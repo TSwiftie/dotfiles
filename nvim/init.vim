@@ -10,7 +10,7 @@ Plug 'dracula/vim',{'as':'dracula'}
 Plug 'arcticicestudio/nord-vim'
 Plug 'sainnhe/sonokai'
 Plug 'joshdick/onedark.vim'
-Plug 'luochen1990/rainbow'
+"Plug 'luochen1990/rainbow'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'voldikss/vim-floaterm'
 Plug 'jiangmiao/auto-pairs'
