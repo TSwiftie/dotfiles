@@ -110,7 +110,7 @@ set showmode
 set shortmess-=5
 au BufRead,BufNewFile * setfiletype txt
 let mapleader=" "
-nnoremap <Backspace> :noh<CR>
+nnoremap <esc> <esc>:noh<CR>
 
 
 
