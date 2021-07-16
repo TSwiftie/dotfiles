@@ -134,6 +134,12 @@ if (empty($TMUX))
   endif
 endif
 
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
 
 "sonokai theme
 "let g:sonokai_style = 'atlantis'
@@ -399,15 +405,6 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
-
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  indent = {
-    enable = false
-  }
-}
-EOF
-
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
