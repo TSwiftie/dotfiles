@@ -79,5 +79,9 @@ fi
 
 export PATH="$HOME/.cargo/bin:/opt/homebrew/opt/llvm/bin:$PATH"
 export GOPROXY=https://goproxy.io
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
