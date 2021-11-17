@@ -1,7 +1,7 @@
 {
 	"coc.preferences.hoverTarget": "float",
 	"coc.preferences.enableFloatHighlight": true,
-	"coc.preferences.snippetStatusText": "Ⓢ ",
+	"coc.preferences.snippetStatusText": "",
 	"coc.preferences.extensionUpdateCheck": "daily",
 	"coc.preferences.messageLevel": "error",
 	"coc.source.around.firstMatch": false,
@@ -50,19 +50,18 @@
     "diagnostic.enableSign": true,
     "diagnostic.showUnused": true,
     "diagnostic.showDeprecated": true,
-	"diagnostic.errorSign": "✗",
-	"diagnostic.warningSign": "⚡",
+	"diagnostic.errorSign": "\uf00d",
+	"diagnostic.warningSign": "\uf071",
 	"diagnostic.infoSign": "\uf129",
 	"diagnostic.hintSign": "\uf864",
 	"diagnostic.displayByAle": false,
 	"diagnostic.refreshOnInsertMode": false,
 	"diagnostic.checkCurrentLine": true,
-	"diagnostic.virtualTextPrefix": " ❯❯❯ ",
 	"diagnostic.virtualText": true,
 	"codeLens.enable": true,
 	"list.previewHighlightGroup": "Statement",
-	"list.nextKeymap": "<C-j>",
-	"list.previousKeymap": "<C-k>",
+	"list.nextKeymap": "<c-j>",
+	"list.previousKeymap": "<c-k>",
 	"snippets.ultisnips.directories": [
 		"$HOME/.config/nvim/Ultisnips/",
 		"$HOME/.config/nvim/plugged/vim-snippets/UltiSnips/"
@@ -109,8 +108,11 @@
             "initializationOptions": {
                 "buildDirectory": "build"
             }
-        }
-    },
-    "rust-analyzer.enable": true,
-    "rust-analyzer.server.path": "/usr/bin/rust-analyzer"
+        },
+        "golang": {
+			"command": "gopls",
+			"rootPatterns": ["go.mod"],
+			"filetypes": ["go"]
+		}
+    }
 }
