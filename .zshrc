@@ -11,6 +11,8 @@ source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
+eval "$(starship init zsh)"
+
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
@@ -41,10 +43,16 @@ zinit snippet OMZ::plugins/command-not-found/command-not-found.plugin.zsh
 
 zinit load djui/alias-tips
 
-zinit light spaceship-prompt/spaceship-prompt
+#zinit light spaceship-prompt/spaceship-prompt
 
 zinit ice svn
 zinit snippet OMZ::plugins/extract
+
+# Load starship theme
+zinit ice as"command" from"gh-r" \ # `starship` binary as command, from github release
+          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \ # starship setup at clone(create init.zsh, completion)
+          atpull"%atclone" src"init.zsh" # pull behavior same as clone, source init.zsh
+zinit light starship/starship
 
 alias lg="lazygit"
 alias ra="ranger"
