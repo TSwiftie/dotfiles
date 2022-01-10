@@ -58,6 +58,7 @@ alias ra="ranger"
 alias tn="tmux new"
 alias ta="tmux attach"
 alias lzd="lazydocker"
+alias td="tldr"
 
 # remap vi to neovim
 if type nvim > /dev/null 2>&1; then 
@@ -83,11 +84,10 @@ fi
 if type exa > /dev/null 2>&1; then
     alias ls='exa'
 fi
-
-export PATH="$HOME/.cargo/bin:/opt/homebrew/opt/llvm/bin:$PATH"
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$HOME/.cargo/bin:/opt/homebrew/opt/llvm/bin:$PATH"
 export GOPROXY=https://goproxy.io
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
-
+export GO111MODULE=auto
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
