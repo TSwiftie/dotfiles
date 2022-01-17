@@ -7,6 +7,7 @@
 
 set nocompatible
 call plug#begin(stdpath('data').'/plugged')
+Plug 'kdheepak/lazygit.nvim'
 Plug 'dracula/vim',{'as':'dracula'}
 Plug 'arcticicestudio/nord-vim'
 Plug 'sainnhe/sonokai'
@@ -954,3 +955,5 @@ gls.short_line_right[1] = {
   }
 }
 EOF
+
+nnoremap <silent> <leader>gg :LazyGit<CR>
