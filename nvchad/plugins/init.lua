@@ -68,6 +68,7 @@ plugins = {
   },
   {"github/copilot.vim",},
   {"stevearc/dressing.nvim"},
+  {"kevinhwang91/nvim-bqf"},
 }
 
 return plugins
