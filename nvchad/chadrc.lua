@@ -126,7 +126,7 @@ M.mappings = {
 
    misc = {
       cheatsheet = "<leader>ch",
-      close_buffer = "<leader>x",
+      close_buffer = "",
       copy_whole_file = "<C-a>", -- copy all contents of current buffer
       copy_to_system_clipboard = "<C-c>", -- copy selected text (visual mode) or curent line (normal)
       line_number_toggle = "<leader>n", -- toggle line number
