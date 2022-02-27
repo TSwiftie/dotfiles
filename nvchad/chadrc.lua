@@ -207,7 +207,7 @@ M.mappings.plugins = {
       float_diagnostics = "ge",
       goto_prev = "[d",
       goto_next = "]d",
-      set_loclist = "<leader>q",
+      set_loclist = "",
       formatting = "<leader>fm",
    },
 
