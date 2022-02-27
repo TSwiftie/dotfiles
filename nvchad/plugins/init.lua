@@ -66,9 +66,8 @@ plugins = {
         vim.cmd [[omap T <Plug>(eft-T)]]
       end,
   },
-  {
-      "github/copilot.vim",
-  },
+  {"github/copilot.vim",},
+  {"stevearc/dressing.nvim"},
 }
 
 return plugins
