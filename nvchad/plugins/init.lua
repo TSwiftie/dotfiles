@@ -98,7 +98,6 @@ plugins = {
             }
       end,
   },
-  {"wlangstroth/vim-racket"},
 }
 
 return plugins
