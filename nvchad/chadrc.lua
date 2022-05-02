@@ -44,9 +44,9 @@ M.options = {
 ---- UI -----
 
 M.ui = {
-   hl_override = "", -- path of your file that contains highlights
+   --hl_override = "", -- path of your file that contains highlights
    italic_comments = false,
-   theme = "catppuccin", -- default theme
+   theme = "chadracula", -- default theme
 
    -- Change terminal bg to nvim theme's bg color so it'll match well
    -- For Ex : if you have onedark set in nvchad, set onedark's bg color on your terminal
@@ -113,7 +113,7 @@ M.plugins = {
      nvim_tree = pluginConfs.nvimtree,
    },
    default_plugin_remove = {},
-   install = userPlugins,
+   user = userPlugins,
 }
 
 -- Don't use a single keymap twice
@@ -227,6 +227,10 @@ M.mappings.plugins = {
       oldfiles = "<leader>fo",
       themes = "<leader>th", -- NvChad theme picker
    },
+}
+
+M.mappings = {
+  misc = function() end,
 }
 
 return M
