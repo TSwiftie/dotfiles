@@ -1,17 +1,11 @@
 return {
-  ["williamboman/nvim-lsp-installer"] = {},
   ["simrat39/symbols-outline.nvim"] = {
     cmd = "SymbolsOutline",
     setup = function()
       require("custom.plugins.symbols-outline").setup()
     end,
   },
-  -- {
-  --   "lukas-reineke/indent-blankline.nvim",
-  --   config = function()
-  --     require("custom.plugins.indent-blankline").config()
-  --   end,
-  -- },
+
   ["p00f/nvim-ts-rainbow"] = {
     -- Parenthesis highlighting
     after = "nvim-treesitter",
@@ -25,22 +19,51 @@ return {
         vim.cmd [[hi rainbowcol7 guifg=lightgray]]
     end,
   },
-  ["karb94/neoscroll.nvim"] = {
-    opt = true,
+
+  ["luukvbaal/stabilize.nvim"] = {
     config = function()
-      require("neoscroll").setup()
-    end,
-    -- lazy loading
-    setup = function()
-      require("core.utils").packer_lazy_load "neoscroll.nvim"
-    end,
+      require("stabilize").setup()
+    end
   },
+
   ["rhysd/accelerated-jk"] = {
     setup = function ()
       vim.cmd [[nmap j <Plug>(accelerated_jk_gj)]]
       vim.cmd [[nmap k <Plug>(accelerated_jk_gk)]]
     end,
   },
+
+  ["karb94/neoscroll.nvim"] = {
+    config = function()
+       require("neoscroll").setup()
+    end,
+
+    -- lazy loading
+    setup = function()
+      nvchad.packer_lazy_load "neoscroll.nvim"
+    end,
+  },
+
+  ["Pocco81/AutoSave.nvim"] = {
+    config = function()
+      local autosave = require "autosave"
+
+      autosave.setup {
+        enabled = true,
+        execution_message = "autosaved at : " .. vim.fn.strftime "%H:%M:%S",
+        events = { "InsertLeave", "TextChanged" },
+        conditions = {
+           exists = true,
+           filetype_is_not = {},
+           modifiable = true,
+        },
+        clean_command_line_interval = 2500,
+        on_off_commands = true,
+        write_all_buffers = false,
+      }
+    end,
+  },
+
   ["hrsh7th/vim-eft"] = {
     setup = function ()
       vim.cmd [[nmap ; <Plug>(eft-repeat)]]
@@ -88,5 +111,40 @@ return {
         fzf_trim = true,         -- trim FZF entries
       }
     end,
+  },
+
+  ["windwp/nvim-ts-autotag"] = {
+    ft = { "html", "javascriptreact" },
+    after = "nvim-treesitter",
+    config = function()
+       require("nvim-ts-autotag").setup()
+    end,
+  },
+
+  ["jose-elias-alvarez/null-ls.nvim"] = {
+    after = "nvim-lspconfig",
+    config = function()
+       require("custom.plugins.null-ls").setup()
+    end,
+  },
+
+  ["nvim-telescope/telescope-media-files.nvim"] = {
+    after = "telescope.nvim",
+    config = function()
+       require("telescope").load_extension "media_files"
+    end,
+  },
+
+  ["Pocco81/TrueZen.nvim"] = {
+    cmd = {
+       "TZAtaraxis",
+       "TZMinimalist",
+       "TZFocus",
+    },
+    config = function()
+       require "custom.plugins.truezen"
+    end,
+  },
+  ["christoomey/vim-tmux-navigator"] = {
   },
 }
