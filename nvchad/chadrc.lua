@@ -1,43 +1,28 @@
+-- Chadrc overrides this file
+
 local M = {}
 
-local override = require "custom.plugins.override"
-local userPlugins = require "custom.plugins"
-
 M.options = {
-  user = function()
-    vim.opt.tabstop = 2
-    vim.opt.termguicolors = true
-    vim.opt.list = true
-    vim.opt.listchars:append("space:⋅")
-    vim.opt.listchars:append("eol:↴")
-  end,
-}
-
-M.plugins = {
-
-   options = {
-      lspconfig = {
-         setup_lspconf = "custom.plugins.lspconfig",
-      },
-
-      statusline = {
-         separator_style = "round",
-      },
-   },
-
-   override = {
-      ["kyazdani42/nvim-tree.lua"] = override.nvimtree,
-      ["nvim-treesitter/nvim-treesitter"] = override.treesitter,
-      ["nvim-telescope/telescope.nvim"] = override.telescope,
-   },
-
-   user = userPlugins,
+  nvChad = {
+    update_url = "https://github.com/NvChad/NvChad",
+    update_branch = "main",
+  },
 }
 
 M.ui = {
-   theme = "catppuccin",
+  -- hl = highlights
+  hl_add = {},
+  hl_override = {},
+  changed_themes = {},
+  theme_toggle = { "onedark", "one_light" },
+  theme = "chadracula", -- default theme
+  transparency = false,
 }
 
+M.plugins = require "custom.plugins"
+
+-- check core.mappings for table structure
+-- M.mappings = require "core.mappings"
 M.mappings = require "custom.mappings"
 
 return M
