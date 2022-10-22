@@ -13,7 +13,7 @@ M.lspsaga = {
   n = {
     ["gh"] = {"<cmd>Lspsaga lsp_finder<CR>", opts = { silent = true } },
     ["<leader>ca"] = {"<cmd>Lspsaga code_action<CR>", opts = { silent = true } },
-    ["gr"] = {"<cmd>Lspsaga rename<CR>", opts = { silent = true } },
+    ["<leader>ra"] = {"<cmd>Lspsaga rename<CR>", opts = { silent = true } },
     ["gd"] = {"<cmd>Lspsaga peek_definition<CR>", opts = { silent = true } },
     ["<leader>cd"] = {"<cmd>Lspsaga show_cursor_diagnostics<CR>", opts = { silent = true } },
     ["[e"] = {"<cmd>Lspsaga diagnostic_jump_prev<CR>", opts = { silent = true } },
