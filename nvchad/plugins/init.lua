@@ -25,6 +25,11 @@ return {
     override_options = {
       view = {
         hide_root_folder = false,
+        adaptive_size = false,
+      },
+      git = {
+        enable = true,
+        ignore = false,
       }
     }
   },
