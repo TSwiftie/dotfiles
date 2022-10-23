@@ -1,5 +1,14 @@
 -- Chadrc overrides this file
 
+local opt = vim.opt
+opt.tabstop = 2
+opt.termguicolors = true
+opt.relativenumber = true
+opt.list = true
+opt.listchars:append("space:⋅")
+opt.listchars:append("eol:↴")
+
+
 local M = {}
 
 M.options = {
